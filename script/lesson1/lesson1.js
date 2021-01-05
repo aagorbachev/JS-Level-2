@@ -5,7 +5,7 @@ const goods = [
   { title: "Shoes", price: 250 },
 ];
 
-const renderGoodsItem = (title, price) => {
+const renderGoodsItem = (title = "Unknown", price = 0) => {
   return `
   <div class="goods-item">
   <img class="goods-image" src="https://placehold.co/600x400" alt="illustration of good">

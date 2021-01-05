@@ -35,8 +35,6 @@ main {
   display: grid;
   text-align: center;
   row-gap: 10px;
-  // grid-template-columns: repeat(3, 1fr);
-  // grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
     "image image image"
     "title title title"
