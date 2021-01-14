@@ -111,7 +111,6 @@ class Catalog {
   constructor() {
     this.goods = [];
   }
-
   fetchGoods() {
     fetch(`${API_URL}/catalogData.json`, {
       method: 'GET'
