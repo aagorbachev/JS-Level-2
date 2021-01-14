@@ -51,6 +51,7 @@ class CatalogItem {
       this.image = image,
       this.quantity = quantity;
   }
+
   render() {
     return `
     <div class="goods-item">
@@ -60,19 +61,19 @@ class CatalogItem {
     <button class="goods-button goods-item__goods-button">Добавить</button>
     </div>`;
   }
+
   setTitle(product_name) {
     this.product_name = product_name;
   }
+
   getTitle() {
     return this.product_name
   }
+
   /**
  * Добавление нового товара в корзину
  * @param {number} productId уникальный идентификатор товара
- * @param {string} product_name наименование товара
- * @param {number} price цена товара
  * @param {number} quantity количество товара
- * @param {string} image ссылка на файл с изображением товара
  */
   addToBasket(id_product, quantity) {
     fetch(`${API_URL}/addToBasket.json`, {
@@ -88,20 +89,7 @@ class CatalogItem {
         console.log(error)
       })
   }
-  buy(count = 1) {
-    if (count > this.quantity) {
-      return null
-    } else {
-      const boughtItem = {}
-      boughtItem.id = this.id;
-      boughtItem.product_name = this.product_name;
-      boughtItem.price = this.price;
-      boughtItem.image = this.image;
-      boughtItem.quantity = count;
-      this.quantity -= count
-      return boughtItem;
-    }
-  }
+
   add(count = 1) {
     this.quantity += count;
   }
