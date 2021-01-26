@@ -1,0 +1,60 @@
+.catalog {
+  padding: 24px 8px;
+  display: grid;
+  grid-template-columns: 1fr 37.5px 61.5px repeat(2, auto) 1fr;
+  grid-template-areas:
+    ". filter  .       sort    sort    ."
+    ". content content content content ."
+    ". pag     pag     pag     pag     .";
+  row-gap: 32px;
+  justify-content: center;
+  &__filter {
+    grid-area: filter;
+  }
+  &__sort {
+    grid-area: sort;
+  }
+  &__content {
+    grid-area: content;
+    display: grid;
+    gap: 16px;
+    margin-bottom: 8px;
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 360px);
+      gap: 30px;
+    }
+  }
+  &__pagination {
+    grid-area: pag;
+    justify-self: center;
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    height: min-content;
+    z-index: 3;
+  }
+  @media (min-width: 768px) {
+    padding: 24px 16px;
+    grid-template-columns: none;
+  }
+  @media (min-width: 1200px) {
+    padding: 50px 0;
+    grid-template-areas:
+      ". . filter  filter  filter  .       sort    sort    sort    .       .       .        .       . ."
+      ". . content content content content content content content content content content content  . ."
+      ". . pag     pag     pag     pag     pag     pag     pag   pag       pag     pag     pag      . .";
+    grid-template-columns:
+      repeat(2, 1fr) repeat(3, 120px) 30px repeat(3, 120px) 30px repeat(
+        3,
+        120px
+      )
+      repeat(2, 1fr);
+  }
+}

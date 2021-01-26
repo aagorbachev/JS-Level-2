@@ -1,0 +1,54 @@
+.front {
+  position: relative;
+}
+
+.front__model-box {
+  display: none;
+}
+
+.front__slogan {
+  background-color: #f1e4e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front__menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  height: min-content;
+}
+
+@media (min-width: 768px) {
+  .front {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .front__model-box {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+  .front__model-box::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(113, 103, 105, 0.08), rgba(113, 103, 105, 0.08));
+    z-index: 2;
+  }
+  .front__image {
+    width: 100%;
+  }
+}
+
+.text__highlighted {
+  color: #f16d7f;
+}
+/*# sourceMappingURL=front.css.map */

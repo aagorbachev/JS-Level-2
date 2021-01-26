@@ -1,0 +1,13 @@
+.commentary {
+  text-align: center;
+  &__photo {
+    margin-bottom: 30px;
+  }
+  &__text {
+    font-size: 18px;
+    line-height: 22px;
+    &_italic {
+      font-style: italic;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.commentary {
+  text-align: center;
+}
+
+.commentary__photo {
+  margin-bottom: 30px;
+}
+
+.commentary__text {
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.commentary__text_italic {
+  font-style: italic;
+}
+/*# sourceMappingURL=commentary.css.map */

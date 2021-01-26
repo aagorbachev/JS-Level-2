@@ -1,0 +1,13 @@
+.sort-form {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 43px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .sort-form {
+    column-gap: 48px;
+  }
+}
+/*# sourceMappingURL=sort-form.css.map */

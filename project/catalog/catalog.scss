@@ -1,0 +1,49 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+/* Animations */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+/* Header */
+@import "../common_sections/header/header.scss",
+  "../common_sections/header/menu-button.scss";
+
+/* Bottom-header */
+@import "bottom-header/bottom-header.scss";
+
+/* Catalog */
+@import "catalog/catalog.scss", "catalog/filter/filter.scss",
+  "catalog/filter/expanded-filter.scss", "catalog/sort-form/sort-form.scss",
+  "catalog/sort-form/select.scss", "catalog/catalog-item.scss",
+  "catalog/pagination.scss", "../common_blocks/menu/menu.scss",
+  "../common_blocks/menu/close-button.scss";
+
+/* Advantages */
+@import "../common_sections/advantages/advantage.scss",
+  "../common_sections/advantages/advantage.scss";
+
+/* Subscribe */
+@import "../common_sections/subscribe/subsribe.scss",
+  "../common_sections/subscribe/commentary.scss",
+  "../common_sections/subscribe/subscribe-form.scss";
+
+/* Footer */
+@import "../common_sections/footer/footer.scss",
+  "../common_sections/footer/social-widget.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.text {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 300;
+  font-size: 14px;
+  &_lightgray {
+    color: #9f9f9f;
+  }
+}

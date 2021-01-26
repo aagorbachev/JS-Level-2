@@ -1,0 +1,33 @@
+.bottom-header {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  padding: 24px;
+  row-gap: 32px;
+  background: #f8f3f4;
+  &__heading {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #f16d7f;
+    text-align: center;
+  }
+  &__bread-crumbs {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #636363;
+    text-align: center;
+  }
+}
+
+.bread-crumbs_current {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f16d7f;
+}

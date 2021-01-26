@@ -1,0 +1,24 @@
+.advantage {
+  display: grid;
+  grid-template-rows: 60px 1fr 1fr;
+  justify-content: center;
+  text-align: center;
+}
+
+.advantage__icon {
+  justify-self: center;
+}
+
+.advantage__title {
+  margin-bottom: 15px;
+  color: #fbfbfb;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: normal;
+}
+
+.advantage__description {
+  line-height: 17px;
+  color: #fbfbfb;
+}
+/*# sourceMappingURL=advantage.css.map */

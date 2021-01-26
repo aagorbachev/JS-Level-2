@@ -1,0 +1,36 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 248px;
+  &_rectangled {
+    height: 111px;
+  }
+  &__title {
+    font-family: "Lato", sans-serif;
+    text-align: center;
+    &_upper {
+      font-weight: 400;
+      font-size: 16px;
+      color: white;
+    }
+    &_main {
+      font-weight: 700;
+      font-size: 24px;
+      color: #f16d7f;
+    }
+  }
+  @media (min-width: 768px) {
+    height: 167px;
+    &_rectangled {
+      height: 116px;
+    }
+  }
+  @media (min-width: 1200px) {
+    height: 260px;
+    &_rectangled {
+      height: 180px;
+    }
+  }
+}

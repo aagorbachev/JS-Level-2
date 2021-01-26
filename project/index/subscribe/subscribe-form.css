@@ -1,0 +1,39 @@
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe-form__input {
+  box-sizing: border-box;
+  padding: 5px 5px 5px 20px;
+  background: #e1e1e1;
+  width: 260px;
+  height: 47px;
+  border: none;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  line-height: 17px;
+  color: #222224;
+  opacity: 0.67;
+}
+
+.subscribe-form__input:focus {
+  outline: none;
+}
+
+.subscribe-form__submit-button {
+  width: 95px;
+  height: 47px;
+  background: #f16d7f;
+  border: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.subscribe-form__submit-button:focus, .subscribe-form__submit-button:active {
+  outline: none;
+}
+/*# sourceMappingURL=subscribe-form.css.map */

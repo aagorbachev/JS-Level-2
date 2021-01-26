@@ -1,0 +1,46 @@
+.menu {
+  display: none;
+  background: white;
+  padding: 35px;
+  width: 230px;
+  box-sizing: border-box;
+  &_showed {
+    display: block;
+  }
+  &__close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+  &__list {
+    list-style-type: none;
+  }
+  &__heading {
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 24px;
+  }
+  &__list-secondary {
+    padding: 12px 10px 20px 0;
+    margin-left: 22px;
+    list-style-type: none;
+    color: #6f6e6e;
+  }
+  &__item {
+    line-height: 17px;
+    color: #f16d7f;
+  }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.list-secondary {
+  display: grid;
+  gap: 11px;
+  &__item {
+    color: #6f6e6e;
+    font-size: 14px;
+  }
+}

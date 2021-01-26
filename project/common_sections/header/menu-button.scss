@@ -1,0 +1,10 @@
+.menu-button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 23px;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}

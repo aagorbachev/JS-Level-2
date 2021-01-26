@@ -1,0 +1,29 @@
+.pagination {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(7, 15px);
+    column-gap: 15px;
+    align-items: center;
+    list-style-type: none;
+  }
+  &__page-number {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #c4c4c4;
+    justify-self: center;
+    transition: 0.4s;
+    &:hover {
+      color: #ef5b70;
+      cursor: pointer;
+    }
+  }
+}

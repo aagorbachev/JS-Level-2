@@ -1,0 +1,12 @@
+.accessories-category {
+  padding: 0 25%;
+  background: linear-gradient(rgba(33, 22, 22, 0.7), rgba(33, 22, 22, 0.7)), url(../../../../images/categories/accessories.jpg) center no-repeat;
+}
+
+@media (min-width: 768px) {
+  .accessories-category {
+    grid-column: 1 / 4;
+    background: linear-gradient(rgba(33, 22, 22, 0.7), rgba(33, 22, 22, 0.7)), url(../../../../images/categories/accessories_768.jpg) center/cover no-repeat;
+  }
+}
+/*# sourceMappingURL=accessories-category.css.map */

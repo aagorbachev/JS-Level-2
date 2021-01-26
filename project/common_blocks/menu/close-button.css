@@ -1,0 +1,10 @@
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:focus {
+  outline: none;
+}
+/*# sourceMappingURL=close-button.css.map */

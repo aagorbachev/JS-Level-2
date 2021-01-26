@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,OAAO,EAAE,KAAK;EACd,UAAU,EAAE,6DAGT,EACD,kDAAkD,CAAC,MAAM,CAAC,SAAS;CAUtE;;AATC,MAAM,EAAE,SAAS,EAAE,KAAK;EAP1B,AAAA,qBAAqB,CAAC;IAQlB,WAAW,EAAE,KAAK;IAClB,UAAU,EAAE,6DAGT,EACD,sDAAsD,CAAC,YAAY,CACjE,SAAS;GAEhB",
+    "sources": [
+        "accessories-category.scss"
+    ],
+    "names": [],
+    "file": "accessories-category.css"
+}

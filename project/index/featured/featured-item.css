@@ -1,0 +1,32 @@
+.featured-item {
+  background: #f8f8f8;
+}
+
+.featured-item__img {
+  width: 100%;
+}
+
+.featured-item__caption {
+  padding: 23px 28px 20px 16px;
+}
+
+.featured-item__title {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  margin-bottom: 12.6px;
+}
+
+.featured-item__description {
+  color: #5d5d5d;
+  margin-bottom: 18px;
+}
+
+.featured-item__price {
+  margin-left: 2px;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f16d7f;
+}
+/*# sourceMappingURL=featured-item.css.map */

@@ -1,0 +1,34 @@
+.social-widget {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  gap: 7px;
+  &__button {
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.4s;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    & path.social-widget__vector {
+      fill: black;
+      transition: 0.4s;
+    }
+    &:hover {
+      background: #f16d7f;
+      & path.social-widget__vector {
+        fill: white;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    justify-content: end;
+  }
+}

@@ -1,0 +1,32 @@
+.footer {
+  padding: 43px 14px 10px;
+  background: #222224;
+  &__social-widget {
+    margin-bottom: 40px;
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 19px;
+    color: #fbfbfb;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 32px;
+    &__social-widget {
+      margin-bottom: 0;
+      order: 2;
+    }
+    &__text {
+      order: 1;
+      text-align: left;
+    }
+    @media (min-width: 1200px) {
+      display: grid;
+      grid-template-columns: 720px 360px;
+      justify-content: center;
+    }
+  }
+}

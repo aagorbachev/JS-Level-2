@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,UAAU,EAAE,6DAGT,EACD,2CAA2C,CAAC,YAAY,CAAC,SAAS;CAGrE",
+    "sources": [
+        "kids-category.scss"
+    ],
+    "names": [],
+    "file": "kids-category.css"
+}

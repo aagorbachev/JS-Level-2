@@ -1,0 +1,12 @@
+.menu-button {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.menu-button:focus {
+  outline: none;
+}
+/*# sourceMappingURL=menu-button.css.map */

@@ -1,0 +1,23 @@
+.categories {
+  padding: 64px 16px;
+  display: grid;
+  grid-template-columns: 343px;
+  justify-content: center;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .categories {
+    padding: 20px 16px 155px;
+    grid-template-columns: repeat(3, 232px);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .categories {
+    grid-template-columns: repeat(3, 360px);
+    gap: 30px;
+  }
+}
+/*# sourceMappingURL=categories.css.map */

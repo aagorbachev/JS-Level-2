@@ -1,0 +1,63 @@
+.filter {
+  position: relative;
+  z-index: 2;
+}
+
+.filter_pushed {
+  color: #ef5b70;
+}
+
+.filter_pushed .filter-button__icon path {
+  fill: #ef5b70;
+}
+
+.filter_pushed .filter-button {
+  color: #ef5b70;
+}
+
+.filter_pushed .options {
+  display: grid;
+}
+
+.filter__expanded-filter {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+}
+
+.filter-button {
+  background: none;
+  border: none;
+  width: max-content;
+}
+
+.filter-button__text {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .filter-button__text {
+    display: inline-block;
+    margin-right: 11px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.filter-button__icon {
+  width: 37.5px;
+  height: 25px;
+  fill: black;
+}
+
+@media (min-width: 768px) {
+  .filter-button__icon {
+    width: 15px;
+    height: 10px;
+  }
+}
+/*# sourceMappingURL=filter.css.map */

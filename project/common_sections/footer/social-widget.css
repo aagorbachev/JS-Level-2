@@ -1,0 +1,42 @@
+.social-widget {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
+  gap: 7px;
+}
+
+.social-widget__button {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.social-widget__button:focus, .social-widget__button:active {
+  outline: none;
+}
+
+.social-widget__button path.social-widget__vector {
+  fill: black;
+  transition: 0.4s;
+}
+
+.social-widget__button:hover {
+  background: #f16d7f;
+}
+
+.social-widget__button:hover path.social-widget__vector {
+  fill: white;
+}
+
+@media (min-width: 1200px) {
+  .social-widget {
+    justify-content: end;
+  }
+}
+/*# sourceMappingURL=social-widget.css.map */

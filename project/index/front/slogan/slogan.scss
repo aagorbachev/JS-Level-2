@@ -1,0 +1,36 @@
+.slogan {
+  max-width: 100%;
+  padding: 150px 15% 150px 22%;
+  position: relative;
+  &__brand {
+    text-align: left;
+    font-weight: 900;
+    font-size: 38px;
+    position: relative;
+    &::before {
+      content: "";
+      width: 12px;
+      height: 61px;
+      background-color: #f16d7f;
+      position: absolute;
+      left: -27px;
+      top: 5px;
+      z-index: 1;
+    }
+  }
+  &__sub-brand {
+    text-align: left;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+  }
+  @media (min-width: 768px) {
+    padding: 138px 34px 151px 68px;
+    &__brand {
+      &::before {
+        height: 92px;
+        top: -4px;
+      }
+    }
+  }
+}

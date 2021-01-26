@@ -1,0 +1,24 @@
+.advantages {
+  background: #222224;
+  padding: 48px 15px 80px 15px;
+  display: grid;
+  grid-template-columns: 350px;
+  justify-content: center;
+  gap: 45px;
+}
+
+@media (min-width: 768px) {
+  .advantages {
+    padding: 48px 15px 64px;
+    grid-template-columns: 360px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .advantages {
+    padding: 104px 15px;
+    grid-template-columns: repeat(3, 360px);
+    gap: 30px;
+  }
+}
+/*# sourceMappingURL=advantages.css.map */

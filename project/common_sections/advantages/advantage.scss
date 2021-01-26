@@ -1,0 +1,20 @@
+.advantage {
+  display: grid;
+  grid-template-rows: 60px 1fr 1fr;
+  justify-content: center;
+  text-align: center;
+  &__icon {
+    justify-self: center;
+  }
+  &__title {
+    margin-bottom: 15px;
+    color: #fbfbfb;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: normal;
+  }
+  &__description {
+    line-height: 17px;
+    color: #fbfbfb;
+  }
+}

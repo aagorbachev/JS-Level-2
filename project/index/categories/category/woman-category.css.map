@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,UAAU,EAAE,6DAGT,EACD,4CAA4C,CAAC,YAAY,CAAC,SAAS;CAGtE",
+    "sources": [
+        "woman-category.scss"
+    ],
+    "names": [],
+    "file": "woman-category.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,eAAe;EACtC,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;CAIpB;;AAHC,MAAM,EAAE,SAAS,EAAE,KAAK;EAL1B,AAAA,UAAU,CAAC;IAMP,UAAU,EAAE,IAAI;GAEnB",
+    "sources": [
+        "sort-form.scss"
+    ],
+    "names": [],
+    "file": "sort-form.css"
+}

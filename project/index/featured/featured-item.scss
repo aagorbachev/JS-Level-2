@@ -1,0 +1,26 @@
+.featured-item {
+  background: #f8f8f8;
+  &__img {
+    width: 100%;
+  }
+  &__caption {
+    padding: 23px 28px 20px 16px;
+  }
+  &__title {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+    margin-bottom: 12.6px;
+  }
+  &__description {
+    color: #5d5d5d;
+    margin-bottom: 18px;
+  }
+  &__price {
+    margin-left: 2px;
+    font-size: 16px;
+    line-height: 19px;
+    color: #f16d7f;
+  }
+}
