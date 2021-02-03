@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration</title>
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="registration.css" />
   </head>
   <body>
     <header>
-      <img class="header__logo" src="../../images/header/logo.png" alt="logo" />
+      <a href="../../index.html" class="link"
+        ><img
+          class="header__logo"
+          src="../../images/header/logo.png"
+          alt="logo"
+      /></a>
+      <input type="text" class="header__search-input" />
       <button class="header__search-button">
         <svg
           width="26"
@@ -23,7 +29,35 @@
           />
         </svg>
       </button>
-      <button class="header__menu-button menu-button">
+      <a class="header__feedback-button feedback-button" href="../feedback/feedback.html">
+        <svg
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="40px"
+          height="40px"
+          fill="white"
+          ;
+          viewBox="0 0 100 100"
+          enable-background="new 0 0 100 100"
+          xml:space="preserve"
+        >
+          <g id="_x37_7_Essential_Icons">
+            <path
+              id="Typing_Message"
+              d="M86,17H14c-1.1,0-2,0.9-2,2v48c0,1.1,0.9,2,2,2h16v12c0,1.9,2.3,2.6,3.4,1.4L47,69h39c1.1,0,2-0.9,2-2
+          V19C88,17.9,87.1,17,86,17z M84,65H46.2c-0.5,0-1,0.2-1.4,0.6L34,76.2V67c0-1.1-0.9-2-2-2H16V21h68V65z M50,37c-3.9,0-7,3.1-7,7
+          s3.1,7,7,7s7-3.1,7-7S53.9,37,50,37z M50,47c-1.7,0-3-1.3-3-3c0-1.6,1.3-3,3-3c1.6,0,3,1.4,3,3C53,45.7,51.6,47,50,47z M70,37
+          c-3.9,0-7,3.1-7,7s3.1,7,7,7c3.9,0,7-3.1,7-7S73.9,37,70,37z M70,47c-1.7,0-3-1.3-3-3c0-1.6,1.3-3,3-3c1.7,0,3,1.4,3,3
+          C73,45.7,71.6,47,70,47z M30,37c-3.9,0-7,3.1-7,7s3.1,7,7,7c3.9,0,7-3.1,7-7S33.9,37,30,37z M30,47c-1.6,0-3-1.3-3-3
+          c0-1.6,1.4-3,3-3c1.7,0,3,1.4,3,3C33,45.7,31.6,47,30,47z"
+            />
+          </g>
+        </svg>
+      </a>
+      <button class="header__menu-button">
         <svg
           width="32"
           height="23"
@@ -37,7 +71,7 @@
           />
         </svg>
       </button>
-      <button class="header__authorize-button">
+      <a href="registration.html" class="header__authorize-button">
         <svg
           width="29"
           height="29"
@@ -50,8 +84,8 @@
             fill="#E8E8E8"
           />
         </svg>
-      </button>
-      <button class="header__cart-button cart-button">
+      </ф>
+      <a class="header__cart-button cart-button" href="../cart/cart.html">
         <svg
           width="33"
           height="29"
@@ -64,8 +98,122 @@
             fill="#E8E8E8"
           />
         </svg>
-      </button>
+      </a>
     </header>
+    <section class="bottom-header">
+      <h1 class="bottom-header__heading">REGISTRATION</h1>
+    </section>
+    <section class="registration-section">
+      <form action="#" class="registration-section__form form">
+        <h3 class="form__title form_margin-bot-20">Your Name</h3>
+        <input
+          type="text"
+          class="form__input-field form_margin-bot-20"
+          name="first-name"
+          placeholder="First Name"
+        />
+        <input
+          type="text"
+          class="form__input-field form_margin-bot-32"
+          name="last-name"
+          placeholder="Last Name"
+        />
+        <div class="form__gender-radiobuttons form_margin-bot-32">
+          <input
+            type="radio"
+            class="form__radio-button"
+            name="gender"
+            value="Male"
+            id="gender-choice1"
+          />
+          <label class="form__radio-label" for="gender-choice1"
+            >Male</label
+          >
+          <input
+            type="radio"
+            class="form__radio-button"
+            name="gender"
+            value="Female"
+            id="gender-choice2"
+          />
+          <label class="form__radio-label" for="gender-choice2"
+            >Female</label
+          >
+          <input
+            type="radio"
+            class="form__radio-button"
+            name="gender"
+            value="Other"
+            id="gender-choice3"
+          />
+          <label class="form__radio-label" for="gender-choice3"
+            >Other</label
+          >
+        </div>
+        <h3 class="form__title form_margin-bot-20">Login details</h3>
+        <input
+          type="email"
+          name="email"
+          class="form__input-field form_margin-bot-20"
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          class="form__input-field form_margin-bot-20"
+          placeholder="Password"
+        />
+        <p class="form__password-instruction form_margin-bot-40">
+          Please use 8 or more characters, with at least 1 number and a mixture
+          of uppercase and lowercase letters
+        </p>
+        <button
+          type="submit"
+          class="form__submit-button"
+        >
+          <span class="form__button-text">Join Now</span
+          ><svg
+            class="form__button-arrow-icon"
+            width="18"
+            height="10"
+            viewBox="0 0 18 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M11.5401 0.208095C11.6059 0.142131 11.6841 0.0897967 11.7701 0.0540883C11.8562 0.01838 11.9484 0 12.0416 0C12.1348 0 12.227 0.01838 12.3131 0.0540883C12.3991 0.0897967 12.4773 0.142131 12.5431 0.208095L16.793 4.458C16.859 4.5238 16.9113 4.60196 16.947 4.68802C16.9827 4.77407 17.0011 4.86632 17.0011 4.95949C17.0011 5.05266 16.9827 5.14491 16.947 5.23097C16.9113 5.31702 16.859 5.39518 16.793 5.46098L12.5431 9.71089C12.4101 9.84389 12.2297 9.91861 12.0416 9.91861C11.8535 9.91861 11.6731 9.84389 11.5401 9.71089C11.4071 9.57788 11.3324 9.39749 11.3324 9.2094C11.3324 9.0213 11.4071 8.84091 11.5401 8.70791L15.29 4.95949L11.5401 1.21107C11.4742 1.14528 11.4218 1.06711 11.3861 0.981059C11.3504 0.895005 11.332 0.802752 11.332 0.709584C11.332 0.616415 11.3504 0.524162 11.3861 0.438109C11.4218 0.352055 11.4742 0.273891 11.5401 0.208095Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 4.95948C0 4.77162 0.0746263 4.59146 0.207462 4.45862C0.340297 4.32579 0.52046 4.25116 0.708318 4.25116H15.583C15.7708 4.25116 15.951 4.32579 16.0838 4.45862C16.2167 4.59146 16.2913 4.77162 16.2913 4.95948C16.2913 5.14734 16.2167 5.3275 16.0838 5.46033C15.951 5.59317 15.7708 5.6678 15.583 5.6678H0.708318C0.52046 5.6678 0.340297 5.59317 0.207462 5.46033C0.0746263 5.3275 0 5.14734 0 4.95948Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </form>
+      <div class="registration-section__loyalty-block loyalty-block">
+        <h2 class="loyalty-block__title">LOYALTY HAS ITS PERKS</h2>
+        <p class="loyalty-block__text">
+          Get in on the loyalty program where you can earn points and unlock
+          serious perks. Starting with these as soon as you join:
+        </p>
+        <ul class="loyalty-block__list">
+          <li class="loyalty-block__list-item">15% off welcome offer</li>
+          <li class="loyalty-block__list-item">
+            Free shipping, returns and exchanges on all orders
+          </li>
+          <li class="loyalty-block__list-item">
+            $10 off a purchase on your birthday
+          </li>
+          <li class="loyalty-block__list-item">Early access to products</li>
+          <li class="loyalty-block__list-item">Exclusive offers & rewards</li>
+        </ul>
+      </div>
+    </section>
     <section class="subscribe">
       <div class="subscribe__commentary commentary">
         <img

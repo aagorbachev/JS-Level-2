@@ -5,7 +5,7 @@
 /* Header */
 header {
   display: grid;
-  grid-template-columns: 85px 1fr 11%;
+  grid-template-columns: 85px 0.5fr 0.5fr 11%;
   align-items: end;
   background-color: #222222;
   padding: 18px 15px;
@@ -14,7 +14,7 @@ header {
 @media (min-width: 768px) {
   header {
     padding: 18px 32px;
-    grid-template-columns: 85px 1fr 8% 10% 5.7%;
+    grid-template-columns: 85px 0.5fr 0.5fr 0.1fr 0.1fr 0.1fr 5.7%;
   }
 }
 
@@ -26,8 +26,6 @@ header {
 }
 
 .header__authorize-button {
-  background: none;
-  border: none;
   width: 29px;
   height: 29px;
   align-self: center;
@@ -40,8 +38,6 @@ header {
 }
 
 .header__cart-button {
-  background: none;
-  border: none;
   align-self: center;
 }
 
@@ -53,6 +49,24 @@ header {
 
 .header__menu-button {
   align-self: center;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.header__menu-button:focus {
+  outline: none;
+}
+
+.header__search-input {
+  width: 200px;
+  align-self: center;
+  color: white;
+  border: 1px solid gray;
+  padding: 5px;
+  background-color: #222222;
 }
 
 .header__search-button {
@@ -61,18 +75,6 @@ header {
   width: 26px;
   height: 27px;
   align-self: center;
-}
-
-.menu-button {
-  background: none;
-  border: none;
-  width: 32px;
-  height: 23px;
-  cursor: pointer;
-}
-
-.menu-button:focus {
-  outline: none;
 }
 
 /* Bottom-header */
@@ -116,18 +118,14 @@ header {
 .catalog {
   padding: 24px 8px;
   display: grid;
-  grid-template-columns: 1fr 37.5px 61.5px repeat(2, auto) 1fr;
-  grid-template-areas: ". filter  .       sort    sort    ." ". content content content content ." ". pag     pag     pag     pag     .";
+  grid-template-columns: fit-content(360px);
+  grid-template-areas: "controls" "content " "pagination";
   row-gap: 32px;
   justify-content: center;
 }
 
-.catalog__filter {
-  grid-area: filter;
-}
-
-.catalog__sort {
-  grid-area: sort;
+.catalog__controls {
+  grid-area: controls;
 }
 
 .catalog__content {
@@ -151,7 +149,7 @@ header {
 }
 
 .catalog__pagination {
-  grid-area: pag;
+  grid-area: pagination;
   justify-self: center;
 }
 
@@ -549,28 +547,34 @@ header {
 }
 
 /* Advantages */
-.advantage {
+.advantages {
+  background: #222224;
+  padding: 48px 15px 80px;
   display: grid;
-  grid-template-rows: 60px 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
-  text-align: center;
+  gap: 45px;
 }
 
-.advantage__icon {
-  justify-self: center;
+@media (min-width: 380px) {
+  .advantages {
+    grid-template-columns: 350px;
+  }
 }
 
-.advantage__title {
-  margin-bottom: 15px;
-  color: #fbfbfb;
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: normal;
+@media (min-width: 768px) {
+  .advantages {
+    padding: 48px 15px 64px;
+    grid-template-columns: 360px;
+  }
 }
 
-.advantage__description {
-  line-height: 17px;
-  color: #fbfbfb;
+@media (min-width: 1200px) {
+  .advantages {
+    padding: 104px 15px;
+    grid-template-columns: repeat(3, 360px);
+    gap: 30px;
+  }
 }
 
 .advantage {
@@ -601,7 +605,7 @@ header {
 .subscribe {
   padding: 64px 15px 110px;
   display: grid;
-  grid-template-columns: 343px;
+  grid-template-columns: 1fr;
   justify-content: center;
   background: linear-gradient(rgba(244, 244, 244, 0.7), rgba(244, 244, 244, 0.7)), bottom/cover url(../../../images/subscribe/background.jpg) no-repeat;
 }
@@ -672,11 +676,10 @@ header {
 }
 
 .subscribe-form__input {
+  flex: 0 260px;
   box-sizing: border-box;
-  width: 256px;
   padding: 5px 5px 5px 20px;
   background: #e1e1e1;
-  max-width: 260px;
   height: 47px;
   border: none;
   border-top-left-radius: 25px;
@@ -691,7 +694,7 @@ header {
 }
 
 .subscribe-form__submit-button {
-  width: 95px;
+  flex: 0 0 100px;
   height: 47px;
   background: #f16d7f;
   border: none;

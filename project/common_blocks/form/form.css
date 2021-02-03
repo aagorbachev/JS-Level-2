@@ -1,0 +1,121 @@
+.form__title {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.form__input-field {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+  padding: 12px 17px 15px;
+  background: #ffffff;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  border: 1px solid #a4a4a4;
+  outline: none;
+}
+
+.form__gender-radiobuttons {
+  display: flex;
+  align-items: center;
+}
+
+.form__radio-button {
+  cursor: pointer;
+  margin-right: 10px;
+  appearance: none;
+  border: 1px solid #a4a4a4;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+}
+
+.form__radio-button:checked {
+  background-color: #a4a4a4;
+  background-clip: content-box;
+  padding: 3px;
+}
+
+.form__radio-label {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 13px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.form__password-instruction {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  color: #b1b1b1;
+}
+
+.form__submit-button {
+  width: 167px;
+  padding: 16px 29px 17px;
+  background: #f16d7f;
+  border: none;
+}
+
+.form__button-text {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.form__comment-field {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+  padding: 12px 17px 15px;
+  background: #ffffff;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 16px;
+  border: 1px solid #a4a4a4;
+  resize: none;
+  outline: none;
+}
+
+.form__warning {
+  font-size: 10px;
+  color: red;
+}
+
+.form__button-arrow-icon {
+  margin-left: 20px;
+}
+
+.form_margin-bot-20 {
+  margin-bottom: 20px;
+}
+
+.form_margin-bot-32 {
+  margin-bottom: 32px;
+}
+
+.form_margin-bot-40 {
+  margin-bottom: 32px;
+}
+/*# sourceMappingURL=form.css.map */

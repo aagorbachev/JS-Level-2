@@ -1,0 +1,103 @@
+@mixin defaultFontSettings {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  color: #222222;
+}
+
+.form {
+  &__title {
+    @include defaultFontSettings;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+  }
+  &__input-field {
+    width: 100%;
+    box-sizing: border-box;
+    @include defaultFontSettings;
+    padding: 12px 17px 15px;
+    background: #ffffff;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    border: 1px solid #a4a4a4;
+    outline: none;
+  }
+  &__gender-radiobuttons {
+    display: flex;
+    align-items: center;
+  }
+  &__radio-button {
+    cursor: pointer;
+    margin-right: 10px;
+    appearance: none;
+    border: 1px solid #a4a4a4;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    &:checked {
+      background-color: #a4a4a4;
+      background-clip: content-box;
+      padding: 3px;
+    }
+  }
+  &__radio-label {
+    @include defaultFontSettings;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 13px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+  &__password-instruction {
+    @include defaultFontSettings;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    color: #b1b1b1;
+  }
+  &__submit-button {
+    width: 167px;
+    padding: 16px 29px 17px;
+    background: #f16d7f;
+    border: none;
+  }
+  &__button-text {
+    @include defaultFontSettings;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #ffffff;
+    text-transform: uppercase;
+  }
+  &__comment-field {
+    width: 100%;
+    box-sizing: border-box;
+    @include defaultFontSettings;
+    padding: 12px 17px 15px;
+    background: #ffffff;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    border: 1px solid #a4a4a4;
+    resize: none;
+    outline: none;
+  }
+  &__warning {
+    font-size: 10px;
+    color: red;
+  }
+
+  &__button-arrow-icon {
+    margin-left: 20px;
+  }
+  &_margin-bot-20 {
+    margin-bottom: 20px;
+  }
+  &_margin-bot-32 {
+    margin-bottom: 32px;
+  }
+  &_margin-bot-40 {
+    margin-bottom: 32px;
+  }
+}

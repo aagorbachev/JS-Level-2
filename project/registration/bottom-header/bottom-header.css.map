@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,OAAO,EAAE,cAAc;EACvB,UAAU,EAAE,OAAO;CASpB;;AARE,AAAD,uBAAU,CAAC;EACT,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,MAAM;EACnB,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;EACjB,KAAK,EAAE,OAAO;EACd,UAAU,EAAE,MAAM;CACnB",
+    "sources": [
+        "bottom-header.scss"
+    ],
+    "names": [],
+    "file": "bottom-header.css"
+}

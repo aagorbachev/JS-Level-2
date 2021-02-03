@@ -1,0 +1,9 @@
+.feedback-section {
+  padding: 40px 2% 96px;
+  display: grid;
+  grid-template-columns: fit-content(640px);
+  justify-content: center;
+  @media (min-width: 768px) {
+    grid-template-columns: fit-content(720px);
+  }
+}

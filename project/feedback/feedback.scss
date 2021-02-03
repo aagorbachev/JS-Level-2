@@ -1,0 +1,45 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+/* Animations */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+// Header
+@import "../common_sections/header/header.scss";
+
+// Bottom header
+@import "bottom-header/bottom-header.scss";
+
+// Feedback-section
+@import "feedback-section/feedback-section.scss",
+  "../common_blocks/form/form.scss";
+
+// Subscribe
+@import "../common_sections/subscribe/subsribe.scss",
+  "../common_sections/subscribe/subscribe-form.scss",
+  "../common_sections/subscribe/commentary.scss";
+
+// Footer
+@import "../common_sections/footer/footer.scss",
+  "../common_sections/footer/social-widget.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+}
+
+.text {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 300;
+  font-size: 14px;
+  &_lightgray {
+    color: #9f9f9f;
+  }
+}

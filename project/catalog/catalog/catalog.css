@@ -1,18 +1,14 @@
 .catalog {
   padding: 24px 8px;
   display: grid;
-  grid-template-columns: 1fr 37.5px 61.5px repeat(2, auto) 1fr;
-  grid-template-areas: ". filter  .       sort    sort    ." ". content content content content ." ". pag     pag     pag     pag     .";
+  grid-template-columns: fit-content(360px);
+  grid-template-areas: "controls" "content " "pagination";
   row-gap: 32px;
   justify-content: center;
 }
 
-.catalog__filter {
-  grid-area: filter;
-}
-
-.catalog__sort {
-  grid-area: sort;
+.catalog__controls {
+  grid-area: controls;
 }
 
 .catalog__content {
@@ -36,7 +32,7 @@
 }
 
 .catalog__pagination {
-  grid-area: pag;
+  grid-area: pagination;
   justify-self: center;
 }
 

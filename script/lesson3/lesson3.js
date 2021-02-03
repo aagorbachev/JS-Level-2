@@ -44,7 +44,7 @@ function makeGETRequest(url) {
 const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
 class CatalogItem {
-  constructor(id, product_name, price, image = "https://placehold.co/600x400", quantity = 1) {
+  constructor(id, product_name, price, image = "https://placehold.co/360x420", quantity = 1) {
     this.product_name = product_name,
       this.price = price,
       this.id_product = id,
@@ -53,13 +53,30 @@ class CatalogItem {
   }
 
   render() {
-    return `
-    <div class="goods-item">
-    <img class="goods-image" src="${this.image}" alt="illustration of product">
-    <h3 class="goods-title">${this.product_name}</h3>
-    <p class="goods-text">${this.price}</p>
-    <button class="goods-button goods-item__goods-button">Добавить</button>
-    </div>`;
+    const catalogItemElement = document.createElement("div")
+    catalogItemElement.classList.add("catalog__item", "catalog-item")
+    catalogItemElement.innerHTML = `<img
+  src="../../images/featured/man_coat.jpg"
+  alt=""
+  class="catalog-item__img"
+/>
+<div class="catalog-item__caption">
+  <h3 class="catalog-item__title">${this.product_name}</h3>
+  <p class="catalog-item__description text">
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga placeat ullam ipsa harum animi unde, itaque commodi molestiae incidunt quod!
+  </p>
+  <p class="catalog-item__price">&#8381;${this.price}</p>
+</div>`
+    const addToCartBtn = document.createElement("button")
+    addToCartBtn.classList.add("catalog-item__button")
+    addToCartBtn.innerHTML = `Add to Cart`
+    addToCartBtn.addEventListener("click", (event) => {
+      event.preventDefault()
+      this.addToBasket(1)
+    })
+
+    catalogItemElement.append(addToCartBtn)
+    return catalogItemElement
   }
 
   setTitle(product_name) {
@@ -75,7 +92,7 @@ class CatalogItem {
    * @param {number} id_product уникальный идентификатор товара
    * @param {number} quantity количество товара
    */
-  addToBasket(id_product, quantity) {
+  addToBasket(quantity = 1) {
     /* Пока используется заглушка с GET-запросом
      const product = {}
      product.id_product = id_product
@@ -130,11 +147,14 @@ class Catalog {
   }
 
   render() {
-    let listHtml = "";
+    let contentHTML = document.createElement("div");
+    contentHTML.classList.add("catalog__content")
     this.goods.forEach((good) => {
-      listHtml += good.render();
+      contentHTML.append(good.render());
     });
-    document.querySelector(".goods-list").innerHTML = listHtml;
+
+    const contentActual = document.querySelector(".catalog__content")
+    contentActual.replaceWith(contentHTML)
   }
 }
 
@@ -347,7 +367,3 @@ class Cart {
     document.querySelector(".total__grand-value").innerHTML = `&#8381; ${totalHtml}`
   }
 }
-
-const cart = new Cart
-cart.getProductList()
-console.log(cart)

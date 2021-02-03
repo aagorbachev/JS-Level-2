@@ -1,10 +1,16 @@
 .advantages {
   background: #222224;
-  padding: 48px 15px 80px 15px;
+  padding: 48px 15px 80px;
   display: grid;
-  grid-template-columns: 350px;
+  grid-template-columns: 1fr;
   justify-content: center;
   gap: 45px;
+}
+
+@media (min-width: 380px) {
+  .advantages {
+    grid-template-columns: 350px;
+  }
 }
 
 @media (min-width: 768px) {

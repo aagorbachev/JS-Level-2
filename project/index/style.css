@@ -5,7 +5,7 @@
 /* Header */
 header {
   display: grid;
-  grid-template-columns: 85px 1fr 11%;
+  grid-template-columns: 85px 0.5fr 0.5fr 11%;
   align-items: end;
   background-color: #222222;
   padding: 18px 15px;
@@ -14,7 +14,7 @@ header {
 @media (min-width: 768px) {
   header {
     padding: 18px 32px;
-    grid-template-columns: 85px 1fr 8% 10% 5.7%;
+    grid-template-columns: 85px 0.5fr 0.5fr 0.1fr 0.1fr 0.1fr 5.7%;
   }
 }
 
@@ -26,8 +26,6 @@ header {
 }
 
 .header__authorize-button {
-  background: none;
-  border: none;
   width: 29px;
   height: 29px;
   align-self: center;
@@ -40,8 +38,6 @@ header {
 }
 
 .header__cart-button {
-  background: none;
-  border: none;
   align-self: center;
 }
 
@@ -53,6 +49,24 @@ header {
 
 .header__menu-button {
   align-self: center;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.header__menu-button:focus {
+  outline: none;
+}
+
+.header__search-input {
+  width: 200px;
+  align-self: center;
+  color: white;
+  border: 1px solid gray;
+  padding: 5px;
+  background-color: #222222;
 }
 
 .header__search-button {
@@ -61,18 +75,6 @@ header {
   width: 26px;
   height: 27px;
   align-self: center;
-}
-
-.menu-button {
-  background: none;
-  border: none;
-  width: 32px;
-  height: 23px;
-  cursor: pointer;
-}
-
-.menu-button:focus {
-  outline: none;
 }
 
 /* Menu */
@@ -241,7 +243,7 @@ header {
 .categories {
   padding: 64px 16px;
   display: grid;
-  grid-template-columns: 343px;
+  grid-template-columns: 1fr;
   justify-content: center;
   gap: 32px;
 }
@@ -321,7 +323,6 @@ header {
 }
 
 .accessories-category {
-  padding: 0 25%;
   background: linear-gradient(rgba(33, 22, 22, 0.7), rgba(33, 22, 22, 0.7)), url(../../../../images/categories/accessories.jpg) center no-repeat;
 }
 
@@ -336,7 +337,7 @@ header {
 .featured {
   padding: 0 8px;
   display: grid;
-  grid-template-columns: 359px;
+  grid-template-columns: 1fr;
   gap: 16px;
   justify-content: center;
 }
@@ -369,6 +370,12 @@ header {
   background: #f16d7f;
   color: white;
   cursor: pointer;
+}
+
+@media (min-width: 380px) {
+  .featured {
+    grid-template-columns: 360px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -433,11 +440,17 @@ header {
 /* Advantages */
 .advantages {
   background: #222224;
-  padding: 48px 15px 80px 15px;
+  padding: 48px 15px 80px;
   display: grid;
-  grid-template-columns: 350px;
+  grid-template-columns: 1fr;
   justify-content: center;
   gap: 45px;
+}
+
+@media (min-width: 380px) {
+  .advantages {
+    grid-template-columns: 350px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -483,7 +496,7 @@ header {
 .subscribe {
   padding: 64px 15px 110px;
   display: grid;
-  grid-template-columns: 343px;
+  grid-template-columns: 1fr;
   justify-content: center;
   background: linear-gradient(rgba(244, 244, 244, 0.7), rgba(244, 244, 244, 0.7)), bottom/cover url(../../../images/subscribe/background.jpg) no-repeat;
 }
@@ -554,11 +567,10 @@ header {
 }
 
 .subscribe-form__input {
+  flex: 0 260px;
   box-sizing: border-box;
-  width: 256px;
   padding: 5px 5px 5px 20px;
   background: #e1e1e1;
-  max-width: 260px;
   height: 47px;
   border: none;
   border-top-left-radius: 25px;
@@ -573,7 +585,7 @@ header {
 }
 
 .subscribe-form__submit-button {
-  width: 95px;
+  flex: 0 0 100px;
   height: 47px;
   background: #f16d7f;
   border: none;

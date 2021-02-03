@@ -2,11 +2,10 @@
   display: flex;
   justify-content: center;
   &__input {
+    flex: 0 260px;
     box-sizing: border-box;
-    width: 256px;
     padding: 5px 5px 5px 20px;
     background: #e1e1e1;
-    max-width: 260px;
     height: 47px;
     border: none;
     border-top-left-radius: 25px;
@@ -19,7 +18,7 @@
     }
   }
   &__submit-button {
-    width: 95px;
+    flex: 0 0 100px;
     height: 47px;
     background: #f16d7f;
     border: none;

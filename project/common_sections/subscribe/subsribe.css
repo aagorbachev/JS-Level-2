@@ -1,7 +1,7 @@
 .subscribe {
   padding: 64px 15px 110px;
   display: grid;
-  grid-template-columns: 343px;
+  grid-template-columns: 1fr;
   justify-content: center;
   background: linear-gradient(rgba(244, 244, 244, 0.7), rgba(244, 244, 244, 0.7)), bottom/cover url(../../../images/subscribe/background.jpg) no-repeat;
 }

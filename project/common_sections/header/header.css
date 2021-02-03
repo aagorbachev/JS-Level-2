@@ -1,6 +1,6 @@
 header {
   display: grid;
-  grid-template-columns: 85px 1fr 11%;
+  grid-template-columns: 85px 0.5fr 0.5fr 11%;
   align-items: end;
   background-color: #222222;
   padding: 18px 15px;
@@ -9,7 +9,7 @@ header {
 @media (min-width: 768px) {
   header {
     padding: 18px 32px;
-    grid-template-columns: 85px 1fr 8% 10% 5.7%;
+    grid-template-columns: 85px 0.5fr 0.5fr 0.1fr 0.1fr 0.1fr 5.7%;
   }
 }
 
@@ -21,8 +21,6 @@ header {
 }
 
 .header__authorize-button {
-  background: none;
-  border: none;
   width: 29px;
   height: 29px;
   align-self: center;
@@ -35,8 +33,6 @@ header {
 }
 
 .header__cart-button {
-  background: none;
-  border: none;
   align-self: center;
 }
 
@@ -48,6 +44,24 @@ header {
 
 .header__menu-button {
   align-self: center;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.header__menu-button:focus {
+  outline: none;
+}
+
+.header__search-input {
+  width: 200px;
+  align-self: center;
+  color: white;
+  border: 1px solid gray;
+  padding: 5px;
+  background-color: #222222;
 }
 
 .header__search-button {

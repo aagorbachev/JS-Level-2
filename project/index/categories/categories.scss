@@ -1,7 +1,7 @@
 .categories {
   padding: 64px 16px;
   display: grid;
-  grid-template-columns: 343px;
+  grid-template-columns: 1fr;
   justify-content: center;
   gap: 32px;
   @media (min-width: 768px) {

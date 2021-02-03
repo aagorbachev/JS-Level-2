@@ -1,7 +1,7 @@
 .featured {
   padding: 0 8px;
   display: grid;
-  grid-template-columns: 359px;
+  grid-template-columns: 1fr;
   gap: 16px;
   justify-content: center;
 }
@@ -34,6 +34,12 @@
   background: #f16d7f;
   color: white;
   cursor: pointer;
+}
+
+@media (min-width: 380px) {
+  .featured {
+    grid-template-columns: 360px;
+  }
 }
 
 @media (min-width: 768px) {

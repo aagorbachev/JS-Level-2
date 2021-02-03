@@ -1,0 +1,13 @@
+.feedback-section {
+  padding: 40px 2% 96px;
+  display: grid;
+  grid-template-columns: fit-content(640px);
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .feedback-section {
+    grid-template-columns: fit-content(720px);
+  }
+}
+/*# sourceMappingURL=feedback-section.css.map */

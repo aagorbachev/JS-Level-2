@@ -1,18 +1,20 @@
 .catalog {
   padding: 24px 8px;
   display: grid;
-  grid-template-columns: 1fr 37.5px 61.5px repeat(2, auto) 1fr;
+  grid-template-columns: fit-content(360px);
+  // grid-template-columns: 1fr 37.5px 61.5px repeat(2, auto) 1fr;
+  // grid-template-areas:
+  //   ". filter  .       sort    sort    ."
+  //   ". content content content content ."
+  //   ". pag     pag     pag     pag     .";
   grid-template-areas:
-    ". filter  .       sort    sort    ."
-    ". content content content content ."
-    ". pag     pag     pag     pag     .";
+    "controls"
+    "content "
+    "pagination";
   row-gap: 32px;
   justify-content: center;
-  &__filter {
-    grid-area: filter;
-  }
-  &__sort {
-    grid-area: sort;
+  &__controls {
+    grid-area: controls;
   }
   &__content {
     grid-area: content;
@@ -28,7 +30,7 @@
     }
   }
   &__pagination {
-    grid-area: pag;
+    grid-area: pagination;
     justify-self: center;
   }
 
