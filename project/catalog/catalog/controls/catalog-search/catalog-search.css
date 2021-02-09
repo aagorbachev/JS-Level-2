@@ -1,0 +1,43 @@
+.catalog-search {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.catalog-search__input {
+  height: 18px;
+  padding: 5px 25px 5px 5px;
+  width: 100%;
+}
+
+.catalog-search__clear-button {
+  position: absolute;
+  background: none;
+  border: none;
+  height: 15px;
+  width: 15px;
+  right: 30px;
+  top: 25%;
+}
+
+.catalog-search__clear-icon {
+  height: 15px;
+  width: 15px;
+  fill: lightgray;
+}
+
+.catalog-search__submit-button {
+  background: none;
+  border: none;
+  height: 20px;
+  align-self: center;
+}
+
+.catalog-search__submit-icon {
+  height: 20px;
+}
+
+.catalog-search__submit-icon-path {
+  fill: lightgray;
+}
+/*# sourceMappingURL=catalog-search.css.map */

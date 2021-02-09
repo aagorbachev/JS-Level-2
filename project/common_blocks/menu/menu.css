@@ -4,6 +4,11 @@
   padding: 35px;
   width: 230px;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  z-index: 999;
 }
 
 .menu_showed {
@@ -51,5 +56,15 @@
 .list-secondary__item {
   color: #6f6e6e;
   font-size: 14px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button:focus {
+  outline: none;
 }
 /*# sourceMappingURL=menu.css.map */

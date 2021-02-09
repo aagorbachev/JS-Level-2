@@ -1,0 +1,41 @@
+.shipping {
+  &__title {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    color: #222222;
+    margin-bottom: 20px;
+  }
+}
+
+.shipping-form {
+  display: grid;
+  row-gap: 20px;
+  &__field {
+    padding: 13px 16px 17px;
+    background: #ffffff;
+    border: 1px solid #a4a4a4;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 16px;
+    color: #222222;
+  }
+  &__submit {
+    background: none;
+    border: 1px solid #a4a4a4;
+    width: max-content;
+    padding: 10px 20px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #575757;
+    @media (min-width: 768px) {
+      text-transform: uppercase;
+      color: #4a4a4a;
+      font-weight: 300;
+    }
+  }
+}

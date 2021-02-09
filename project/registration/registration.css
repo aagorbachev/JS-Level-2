@@ -59,21 +59,74 @@ header {
   outline: none;
 }
 
-.header__search-input {
-  width: 200px;
-  align-self: center;
-  color: white;
-  border: 1px solid gray;
-  padding: 5px;
-  background-color: #222222;
+.menu {
+  display: none;
+  background: white;
+  padding: 35px;
+  width: 230px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  z-index: 999;
 }
 
-.header__search-button {
+.menu_showed {
+  display: block;
+}
+
+.menu__close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.menu__list {
+  list-style-type: none;
+}
+
+.menu__heading {
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+.menu__list-secondary {
+  padding: 12px 10px 20px 0;
+  margin-left: 22px;
+  list-style-type: none;
+  color: #6f6e6e;
+}
+
+.menu__item {
+  line-height: 17px;
+  color: #f16d7f;
+}
+
+.menu__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-secondary {
+  display: grid;
+  gap: 11px;
+}
+
+.list-secondary__item {
+  color: #6f6e6e;
+  font-size: 14px;
+}
+
+.close-button {
   background: none;
   border: none;
-  width: 26px;
-  height: 27px;
-  align-self: center;
+  cursor: pointer;
+}
+
+.close-button:focus {
+  outline: none;
 }
 
 .bottom-header {
@@ -127,10 +180,6 @@ header {
   }
 }
 
-.form {
-  display: grid;
-}
-
 .form__title {
   font-family: "Lato", sans-serif;
   font-style: normal;
@@ -146,7 +195,6 @@ header {
   font-family: "Lato", sans-serif;
   font-style: normal;
   color: #222222;
-  display: block;
   padding: 12px 17px 15px;
   background: #ffffff;
   font-weight: 300;
@@ -222,10 +270,8 @@ header {
   font-family: "Lato", sans-serif;
   font-style: normal;
   color: #222222;
-  display: block;
   padding: 12px 17px 15px;
   background: #ffffff;
-  font-style: normal;
   font-weight: 300;
   font-size: 13px;
   line-height: 16px;
@@ -234,9 +280,9 @@ header {
   outline: none;
 }
 
-.form__comment-field::placeholder {
-  font-family: "Lato", sans-serif;
-  font-style: normal;
+.form__warning {
+  font-size: 10px;
+  color: red;
 }
 
 .form__button-arrow-icon {
@@ -253,12 +299,6 @@ header {
 
 .form_margin-bot-40 {
   margin-bottom: 32px;
-}
-
-@media (min-width: 768px) {
-  .form {
-    grid-template-columns: fit-content(720px);
-  }
 }
 
 .loyalty-block__title {

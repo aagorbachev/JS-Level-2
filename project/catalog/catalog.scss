@@ -5,7 +5,8 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
 
 /* Header */
-@import "../common_sections/header/header.scss";
+@import "../common_sections/header/header.scss",
+  "../common_blocks/menu/menu.scss";
 
 /* Bottom-header */
 @import "bottom-header/bottom-header.scss";
@@ -13,10 +14,15 @@
 /* Catalog */
 @import "catalog/catalog.scss", "catalog/controls/filter/filter.scss",
   "catalog/controls/filter/expanded-filter.scss",
+  "catalog/controls/catalog-search/catalog-search.scss",
   "catalog/controls/sort-form/sort-form.scss",
   "catalog/controls/sort-form/select.scss", "catalog/catalog-item.scss",
-  "catalog/pagination.scss", "../common_blocks/menu/menu.scss",
-  "../common_blocks/menu/close-button.scss";
+  "catalog/pagination.scss";
+
+/* Cart */
+@import "cart/cart.scss", "cart/cart-item/cart-item.scss",
+  "../common_blocks/menu/menu.scss", "cart/shipping/shipping.scss",
+  "cart/total/total.scss";
 
 /* Advantages */
 @import "../common_sections/advantages/advantages.scss",

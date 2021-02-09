@@ -1,0 +1,36 @@
+.catalog-search {
+  display: flex;
+  width: 100%;
+  position: relative;
+  &__input {
+    height: 18px;
+    padding: 5px 25px 5px 5px;
+    width: 100%;
+  }
+  &__clear-button {
+    position: absolute;
+    background: none;
+    border: none;
+    height: 15px;
+    width: 15px;
+    right: 30px;
+    top: 25%;
+  }
+  &__clear-icon {
+    height: 15px;
+    width: 15px;
+    fill: lightgray;
+  }
+  &__submit-button {
+    background: none;
+    border: none;
+    height: 20px;
+    align-self: center;
+  }
+  &__submit-icon {
+    height: 20px;
+    &-path {
+      fill: lightgray;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="element">
+      <label>
+        <input type="text" v-model="search" />
+        <span @click="filterGoods">Search</span>
+      </label>
+        <div class="items-list">
+          <div class="items-item"
+            v-for="(item, id) in items"
+            :key="`item_${id}`"
+          >
+            <h3 @click="() => deleteItem(id)">
+              {{ item.product_name }} / {{ item.price }}
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- <input type="text" v-model="name" />
+      <p v-if="name.length > 3 && name.length < 5">{{ name.toUpperCase() }}</p>
+      <p v-else-if="name.length >= 5">{{ name }}</p>
+      <p v-else>Unnamed</p>
+      <p v-show="name.length == 5">NoName</p>
+      <ul>
+        <li v-for="(n, id) in names">{{ n.toUpperCase() }} - {{ id }}</li>
+      </ul> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="script/script.js"></script>
+  </body>
+</html>
