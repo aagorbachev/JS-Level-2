@@ -60,23 +60,6 @@ header {
   outline: none;
 }
 
-.header__search-input {
-  width: 200px;
-  align-self: center;
-  color: white;
-  border: 1px solid gray;
-  padding: 5px;
-  background-color: #222222;
-}
-
-.header__search-button {
-  background: none;
-  border: none;
-  width: 26px;
-  height: 27px;
-  align-self: center;
-}
-
 /* Bottom-header */
 .bottom-header {
   display: flex;
@@ -102,15 +85,6 @@ header {
   grid-template-areas: "items items" "clear continue" "shipping shipping" "total total";
   row-gap: 48px;
   column-gap: 10px;
-}
-
-.cart__menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-  height: min-content;
-  z-index: 3;
 }
 
 .cart__items {
@@ -333,6 +307,11 @@ header {
   padding: 35px;
   width: 230px;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  z-index: 999;
 }
 
 .menu_showed {

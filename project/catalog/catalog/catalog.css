@@ -2,13 +2,52 @@
   padding: 24px 8px;
   display: grid;
   grid-template-columns: fit-content(360px);
-  grid-template-areas: "controls" "content " "pagination";
+  grid-template-areas: "controls" "content " "pagination" "cart";
   row-gap: 32px;
   justify-content: center;
 }
 
 .catalog__controls {
+  display: grid;
+  row-gap: 5px;
   grid-area: controls;
+  grid-template-areas: "filter search" "sort sort";
+}
+
+@media (min-width: 768px) {
+  .catalog__controls {
+    grid-template-areas: "filter search" ". sort";
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .catalog__controls {
+    grid-template-areas: "filter search sort";
+    grid-template-columns: repeat(3, 360px);
+    column-gap: 30px;
+  }
+}
+
+.catalog__filter {
+  grid-area: filter;
+}
+
+.catalog__search {
+  grid-area: search;
+  justify-self: end;
+}
+
+.catalog__sort {
+  grid-area: sort;
+  justify-content: end;
+}
+
+@media (min-width: 1200px) {
+  .catalog__sort {
+    align-self: center;
+  }
 }
 
 .catalog__content {
@@ -36,13 +75,8 @@
   justify-self: center;
 }
 
-.catalog__menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
-  height: min-content;
-  z-index: 3;
+.catalog__cart {
+  grid-area: cart;
 }
 
 @media (min-width: 768px) {
@@ -55,8 +89,7 @@
 @media (min-width: 1200px) {
   .catalog {
     padding: 50px 0;
-    grid-template-areas: ". . filter  filter  filter  .       sort    sort    sort    .       .       .        .       . ." ". . content content content content content content content content content content content  . ." ". . pag     pag     pag     pag     pag     pag     pag   pag       pag     pag     pag      . .";
-    grid-template-columns: repeat(2, 1fr) repeat(3, 120px) 30px repeat(3, 120px) 30px repeat(3, 120px) repeat(2, 1fr);
+    grid-template-columns: none;
   }
 }
 /*# sourceMappingURL=catalog.css.map */

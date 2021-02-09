@@ -1,17 +1,24 @@
-const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+const API_URL =
+  "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses";
 
 class CatalogItem {
-  constructor(id, product_name, price, image = "https://placehold.co/360x420", quantity = 1) {
-    this.product_name = product_name,
-      this.price = price,
-      this.id_product = id,
-      this.image = image,
-      this.quantity = quantity;
+  constructor(
+    id,
+    product_name,
+    price,
+    image = "https://placehold.co/360x420",
+    quantity = 1
+  ) {
+    (this.product_name = product_name),
+      (this.price = price),
+      (this.id_product = id),
+      (this.image = image),
+      (this.quantity = quantity);
   }
 
   render() {
-    const catalogItemElement = document.createElement("div")
-    catalogItemElement.classList.add("catalog__item", "catalog-item")
+    const catalogItemElement = document.createElement("div");
+    catalogItemElement.classList.add("catalog__item", "catalog-item");
     catalogItemElement.innerHTML = `<img
   src="../../images/featured/man_coat.jpg"
   alt=""
@@ -23,17 +30,17 @@ class CatalogItem {
   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga placeat ullam ipsa harum animi unde, itaque commodi molestiae incidunt quod!
   </p>
   <p class="catalog-item__price">&#8381;${this.price}</p>
-</div>`
-    const addToCartBtn = document.createElement("button")
-    addToCartBtn.classList.add("catalog-item__button")
-    addToCartBtn.innerHTML = `Add to Cart`
+</div>`;
+    const addToCartBtn = document.createElement("button");
+    addToCartBtn.classList.add("catalog-item__button");
+    addToCartBtn.innerHTML = `Add to Cart`;
     addToCartBtn.addEventListener("click", (event) => {
-      event.preventDefault()
-      this.addToBasket(1)
-    })
+      event.preventDefault();
+      this.addToBasket(1);
+    });
 
-    catalogItemElement.append(addToCartBtn)
-    return catalogItemElement
+    catalogItemElement.append(addToCartBtn);
+    return catalogItemElement;
   }
 
   setTitle(product_name) {
@@ -41,7 +48,7 @@ class CatalogItem {
   }
 
   getTitle() {
-    return this.product_name
+    return this.product_name;
   }
 
   /**
@@ -55,22 +62,22 @@ class CatalogItem {
      product.id_product = id_product
      product.quantity = quantity */
     fetch(`${API_URL}/addToBasket.json`, {
-      method: "GET"
+      method: "GET",
       // method: "POST", body: `${JSON.stringify(product)}`
     })
-      .then(response => response.json())
-      .then(jsonData => {
-        console.log("Товар добавлен в корзину")
+      .then((response) => response.json())
+      .then((jsonData) => {
+        console.log("Товар добавлен в корзину");
       })
-      .catch(answer => {
+      .catch((answer) => {
         if (answer.errorMessage) {
-          const error = new Error(answer.errorMessage)
-          console.log(error)
+          const error = new Error(answer.errorMessage);
+          console.log(error);
         } else {
-          const error = new Error(answer)
-          console.log(error)
+          const error = new Error(answer);
+          console.log(error);
         }
-      })
+      });
   }
 
   add(count = 1) {
@@ -81,42 +88,48 @@ class CatalogItem {
 class Catalog {
   constructor() {
     this.goods = [];
-    this.filteredGoods = []
+    this.filteredGoods = [];
   }
   fetchGoods() {
-    fetch(`${API_URL}/catalogData.json`,
-      {
-        method: 'GET'
-      }
-    ).then(result => result.json())
-      .then(data => {
-        this.goods = data.map(item => new CatalogItem(item.id_product, item.product_name, item.price))
-        this.filteredGoods = data.map(item => new CatalogItem(item.id_product, item.product_name, item.price))
-        this.render()
-      })
+    fetch(`${API_URL}/catalogData.json`, {
+      method: "GET",
+    })
+      .then((result) => result.json())
+      .then((data) => {
+        this.goods = data.map(
+          (item) =>
+            new CatalogItem(item.id_product, item.product_name, item.price)
+        );
+        this.filteredGoods = data.map(
+          (item) =>
+            new CatalogItem(item.id_product, item.product_name, item.price)
+        );
+        this.render();
+      });
   }
 
   filterGoods(value) {
-    const regexp = new RegExp(value, "i")
-    this.filteredGoods = this.goods.filter(good =>
-      regexp.test(good.product_name))
-    this.render()
+    const regexp = new RegExp(value, "i");
+    this.filteredGoods = this.goods.filter((good) =>
+      regexp.test(good.product_name)
+    );
+    this.render();
   }
 
   countTotalPrice() {
-    let totalPrice = this.goods.reduce((sum, item) => sum + item.price, 0)
-    return totalPrice
+    let totalPrice = this.goods.reduce((sum, item) => sum + item.price, 0);
+    return totalPrice;
   }
 
   render() {
     let contentHTML = document.createElement("div");
-    contentHTML.classList.add("catalog__content")
+    contentHTML.classList.add("catalog__content");
     this.filteredGoods.forEach((good) => {
       contentHTML.append(good.render());
     });
 
-    const contentActual = document.querySelector(".catalog__content")
-    contentActual.replaceWith(contentHTML)
+    const contentActual = document.querySelector(".catalog__content");
+    contentActual.replaceWith(contentHTML);
   }
 }
 
@@ -132,21 +145,27 @@ class CartItem {
    * @param {*} quantity - количество закупаемого товара
    * @param {*} image - ссылка на файл с изображением товара
    */
-  constructor(productId, product_name, price, quantity, image = "https://placehold.co/260x300") {
-    this.productId = productId,
-      this.product_name = product_name,
-      this.price = price,
-      this.quantity = quantity,
-      this.image = image,
-      this.amount = this.price * this.quantity
+  constructor(
+    productId,
+    product_name,
+    price,
+    quantity,
+    image = "https://placehold.co/260x300"
+  ) {
+    (this.productId = productId),
+      (this.product_name = product_name),
+      (this.price = price),
+      (this.quantity = quantity),
+      (this.image = image),
+      (this.amount = this.price * this.quantity);
   }
   /**
    * Подсчет совокупной стоимости всего количества закупаемого твоара
    * @return {number} - итоговая стоимость
    */
   countAmount() {
-    this.amount = this.price * this.quantity
-    return this.amount
+    this.amount = this.price * this.quantity;
+    return this.amount;
   }
   /**
    * Генерация HTML-верстки элемента корзины
@@ -183,7 +202,7 @@ class CartItem {
         <p class="cart-item__attribute size">Amount: <span class="size-value">&#8381;${this.amount}</span></p>
       </div>
     </div>
-    </div>`
+    </div>`;
   }
 }
 
@@ -194,17 +213,17 @@ class Cart {
    * @param {Array} products коллекция товаров, добавленных в корзину
    */
   constructor() {
-    this.products = []
-    this.goodsQuantity = this.countGoods()
-    this.amount = this.countAmount()
+    this.products = [];
+    this.goodsQuantity = this.countGoods();
+    this.amount = this.countAmount();
   }
   /**
    * Получение количества уникальных позиций товаров, добавленных в корзину
    * @return {number} количество уникальных позиций
    */
   countGoods() {
-    this.goodsQuantity = this.products.length
-    return this.goodsQuantity
+    this.goodsQuantity = this.products.length;
+    return this.goodsQuantity;
   }
   /**
    * Возвращает суммарную стоимость товаров в корзине
@@ -212,7 +231,9 @@ class Cart {
    */
   countAmount() {
     this.amount = this.products.reduce(
-      (total, product) => total + product.amount, 0);
+      (total, product) => total + product.amount,
+      0
+    );
     return this.amount;
   }
 
@@ -225,7 +246,7 @@ class Cart {
       if (a.price < b.price) return -1;
       if (a.price == b.price) return 0;
     });
-    this.render()
+    this.render();
   }
 
   /**
@@ -237,7 +258,7 @@ class Cart {
       if (a.price < b.price) return 1;
       if (a.price == b.price) return 0;
     });
-    this.render()
+    this.render();
   }
   /**
    * Сортировка корзины по ID в возрастающем порядке
@@ -248,7 +269,7 @@ class Cart {
       if (a.productId < b.productId) return -1;
       if (a.productId == b.productId) return 0;
     });
-    this.render()
+    this.render();
   }
 
   /**
@@ -256,23 +277,23 @@ class Cart {
    * @param {number} id_product - ID товара
    */
   removeItem(id_product) {
-    fetch(`${API_URL}/deleteFromBasket.json`,
-      {
-        method: "GET"
-      })
-      .then(response => response.json())
+    fetch(`${API_URL}/deleteFromBasket.json`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
       .then((jsonData) => {
-        const itemToRemove = this.products.findIndex(item => item.id == id_product)
-        this.products.splice(itemToRemove, 1)
-        this.countAmount()
-        this.countGoods()
-        this.render()
-      }
-      )
-      .catch(message => {
-        const error = new Error(message)
-        console.log(error)
+        const itemToRemove = this.products.findIndex(
+          (item) => item.id == id_product
+        );
+        this.products.splice(itemToRemove, 1);
+        this.countAmount();
+        this.countGoods();
+        this.render();
       })
+      .catch((message) => {
+        const error = new Error(message);
+        console.log(error);
+      });
   }
 
   /**
@@ -281,33 +302,41 @@ class Cart {
    */
   getProductList() {
     fetch(`${API_URL}/getBasket.json`, {
-      method: "GET"
+      method: "GET",
     })
-      .then(response => response.json())
-      .then(cart => {
-        this.amount = cart.amount
-        this.goodsQuantity = cart.countGoods
-        this.products = cart.contents.map(item => new CartItem(item.id_product, item.product_name, item.price, item.quantity))
-        this.render()
+      .then((response) => response.json())
+      .then((cart) => {
+        this.amount = cart.amount;
+        this.goodsQuantity = cart.countGoods;
+        this.products = cart.contents.map(
+          (item) =>
+            new CartItem(
+              item.id_product,
+              item.product_name,
+              item.price,
+              item.quantity
+            )
+        );
+        this.render();
       })
-      .catch(message => {
-        const error = new Error(message)
-        console.log(error)
-      })
+      .catch((message) => {
+        const error = new Error(message);
+        console.log(error);
+      });
   }
 
   /**
    * Очистка корзины
    */
   clear() {
-    this.products = []
-    this.countGoods = 0
-    this.amount = 0
+    this.products = [];
+    this.countGoods = 0;
+    this.amount = 0;
   }
 
   /**
    * Генерация HTML-верстки корзины
-   * @return {string} - HTML-структура корзины, содержащая элементы корзины, значение суммарного количества позиций товаров и итоговую сумму заказа. 
+   * @return {string} - HTML-структура корзины, содержащая элементы корзины, значение суммарного количества позиций товаров и итоговую сумму заказа.
    */
   render() {
     let listHtml = "";
@@ -316,19 +345,12 @@ class Cart {
     });
     document.querySelector(".cart__items").innerHTML = listHtml;
 
-    let totalHtml = `${this.amount}`
-    document.querySelector(".total__sub-value").innerHTML = `&#8381; ${totalHtml}`
-    document.querySelector(".total__grand-value").innerHTML = `&#8381; ${totalHtml}`
+    let totalHtml = `${this.amount}`;
+    document.querySelector(
+      ".total__sub-value"
+    ).innerHTML = `&#8381; ${totalHtml}`;
+    document.querySelector(
+      ".total__grand-value"
+    ).innerHTML = `&#8381; ${totalHtml}`;
   }
 }
-
-const catalog = new Catalog
-catalog.fetchGoods()
-
-const searchButton = document.querySelector(".search-button")
-
-const searchInput = document.querySelector(".header__search-input")
-searchButton.addEventListener("click", (e) => {
-  const value = searchInput.value
-  catalog.filterGoods(value)
-})

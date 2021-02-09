@@ -9,7 +9,7 @@ header {
 @media (min-width: 768px) {
   header {
     padding: 18px 32px;
-    grid-template-columns: 85px 0.5fr 0.5fr 0.1fr 0.1fr 0.1fr 5.7%;
+    grid-template-columns: 85px 1fr 0.1fr 0.1fr 0.1fr;
   }
 }
 
@@ -53,22 +53,5 @@ header {
 
 .header__menu-button:focus {
   outline: none;
-}
-
-.header__search-input {
-  width: 200px;
-  align-self: center;
-  color: white;
-  border: 1px solid gray;
-  padding: 5px;
-  background-color: #222222;
-}
-
-.header__search-button {
-  background: none;
-  border: none;
-  width: 26px;
-  height: 27px;
-  align-self: center;
 }
 /*# sourceMappingURL=header.css.map */
