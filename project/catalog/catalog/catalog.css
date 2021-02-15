@@ -2,7 +2,7 @@
   padding: 24px 8px;
   display: grid;
   grid-template-columns: fit-content(360px);
-  grid-template-areas: "controls" "content " "pagination" "cart";
+  grid-template-areas: "controls" "items" "pagination" "cart";
   row-gap: 32px;
   justify-content: center;
 }
@@ -50,21 +50,21 @@
   }
 }
 
-.catalog__content {
-  grid-area: content;
+.catalog__items {
+  grid-area: items;
   display: grid;
   gap: 16px;
   margin-bottom: 8px;
 }
 
 @media (min-width: 768px) {
-  .catalog__content {
+  .catalog__items {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1200px) {
-  .catalog__content {
+  .catalog__items {
     grid-template-columns: repeat(3, 360px);
     gap: 30px;
   }

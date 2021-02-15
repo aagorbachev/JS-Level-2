@@ -10,22 +10,6 @@
   width: 100%;
 }
 
-.catalog-search__clear-button {
-  position: absolute;
-  background: none;
-  border: none;
-  height: 15px;
-  width: 15px;
-  right: 30px;
-  top: 25%;
-}
-
-.catalog-search__clear-icon {
-  height: 15px;
-  width: 15px;
-  fill: lightgray;
-}
-
 .catalog-search__submit-button {
   background: none;
   border: none;

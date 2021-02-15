@@ -4,7 +4,7 @@
   grid-template-columns: fit-content(360px);
   grid-template-areas:
     "controls"
-    "content "
+    "items"
     "pagination"
     "cart";
   row-gap: 32px;
@@ -43,8 +43,8 @@
       align-self: center;
     }
   }
-  &__content {
-    grid-area: content;
+  &__items {
+    grid-area: items;
     display: grid;
     gap: 16px;
     margin-bottom: 8px;

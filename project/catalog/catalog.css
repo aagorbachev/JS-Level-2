@@ -172,7 +172,7 @@ header {
   padding: 24px 8px;
   display: grid;
   grid-template-columns: fit-content(360px);
-  grid-template-areas: "controls" "content " "pagination";
+  grid-template-areas: "controls" "items" "pagination" "cart";
   row-gap: 32px;
   justify-content: center;
 }
@@ -220,21 +220,21 @@ header {
   }
 }
 
-.catalog__content {
-  grid-area: content;
+.catalog__items {
+  grid-area: items;
   display: grid;
   gap: 16px;
   margin-bottom: 8px;
 }
 
 @media (min-width: 768px) {
-  .catalog__content {
+  .catalog__items {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1200px) {
-  .catalog__content {
+  .catalog__items {
     grid-template-columns: repeat(3, 360px);
     gap: 30px;
   }
@@ -243,6 +243,10 @@ header {
 .catalog__pagination {
   grid-area: pagination;
   justify-self: center;
+}
+
+.catalog__cart {
+  grid-area: cart;
 }
 
 @media (min-width: 768px) {
@@ -436,22 +440,6 @@ header {
   height: 18px;
   padding: 5px 25px 5px 5px;
   width: 100%;
-}
-
-.catalog-search__clear-button {
-  position: absolute;
-  background: none;
-  border: none;
-  height: 15px;
-  width: 15px;
-  right: 30px;
-  top: 25%;
-}
-
-.catalog-search__clear-icon {
-  height: 15px;
-  width: 15px;
-  fill: lightgray;
 }
 
 .catalog-search__submit-button {
