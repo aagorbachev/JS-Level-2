@@ -107,8 +107,9 @@ Vue.component("cart", {
   </div>
   <clear></clear>
   <continue></continue>
-  <shipping :shipping="onShippingButtonPushed""></shipping>
+  <shipping v-on:getShippingCost="onShippingButtonPushed""></shipping>
  <total :subTotal="countAmount" :grandTotal="countTotalAmount"></total>
+ <error v-if="fetched == false" :errorMessage="error"></error>
 </section>`,
   data() {
     return {
@@ -117,6 +118,8 @@ Vue.component("cart", {
       quantity: 0,
       shipping: 0,
       totalAmount: 0,
+      fetched: true,
+      error: "",
     };
   },
   computed: {
@@ -132,11 +135,6 @@ Vue.component("cart", {
       return value;
     },
 
-    countShipping(value) {
-      console.log(value);
-      this.shipping = value;
-    },
-
     countTotalAmount() {
       this.totalAmount = this.countAmount + this.shipping;
       return this.totalAmount;
@@ -145,7 +143,6 @@ Vue.component("cart", {
 
   methods: {
     onShippingButtonPushed(value) {
-      console.log(value);
       this.shipping = value;
     },
 
@@ -161,14 +158,17 @@ Vue.component("cart", {
     })
       .then((response) => response.json())
       .then((cart) => {
+        this.fetched = true;
         this.amount = cart.amount;
         this.quantity = cart.countGoods;
         this.products = cart.contents;
       })
-      .catch((message) => {
-        const error = new Error(message);
-        console.log(error);
-      });
+      .catch((response) =>
+        response.json().then((message) => {
+          this.fetched = false;
+          this.error = message.errorMessage;
+        })
+      );
   },
 });
 
@@ -243,7 +243,7 @@ Vue.component("shipping", {
   },
   methods: {
     countShipping() {
-      this.$emit("shipping", this.shipping);
+      this.$emit("getShippingCost", this.shipping);
     },
   },
 });
@@ -262,6 +262,13 @@ Vue.component("total", {
   <button class="total__checkout-btn">PROCEED TO CHECKOUT</button>
 </div>`,
   props: ["grand-total", "sub-total"],
+});
+
+Vue.component("error", {
+  template: `<div class="error">
+  <h2 class="error__message">Не удалось получить данные от сервера. {{ errorMessage }}</h2>
+  </div>`,
+  props: ["error-message"],
 });
 
 const app = new Vue({
