@@ -222,6 +222,7 @@ header {
 
 .cart-item__image {
   max-width: 100%;
+  display: block;
 }
 
 .cart-item__description {

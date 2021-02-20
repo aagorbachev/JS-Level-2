@@ -1,9 +1,6 @@
-const API_URL =
-  "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses";
-
 Vue.component("catalog-items", {
   template: `<div class="catalog__items">
-        <catalog-item v-for="(item, id) in filterItems" :key="\`items_\${id}\`" :name="item.product_name" :price="item.price"></catalog-item>
+        <catalog-item v-for="(item, id) in filterItems" :key="\`items_\${id}\`" :name="item.product_name" :price="item.price" :id="item.product_id"></catalog-item>
     </div>`,
   data() {
     return {
@@ -21,7 +18,7 @@ Vue.component("catalog-items", {
   },
 
   mounted() {
-    fetch(`${API_URL}/catalogData.json`, {
+    fetch(`/catalog`, {
       method: "GET",
     })
       .then((result) => result.json())
@@ -45,16 +42,20 @@ Vue.component("catalog-item", {
     </p>
     <p class="catalog-item__price">&#8381; {{ price }}</p>
   </div>
-  <add-to-cart @click="">Add to Cart</add-to-cart>
+  <button class="catalog-item__button">Add to Cart</button>
 </div>`,
-  props: ["name", "price"],
-});
-
-Vue.component("add-to-cart", {
-  template: `<button class="catalog-item__button">Add to Cart</button>`,
+  props: ["name", "price", "id"],
   methods: {
-    addToBasket() {
-      console.log(this);
+    addToCart() {
+      fetch("/addToCart", {
+        method: "POST",
+        body: JSON.stringify({
+          id_product: this.props[3],
+          product_name: this.props[1],
+          price: this.props,
+          quantity: 1,
+        }),
+      });
     },
   },
 });
@@ -115,7 +116,7 @@ Vue.component("cart", {
       products: [],
       amount: 0,
       quantity: 0,
-      shipping: 0,
+      shipping: 500,
       totalAmount: 0,
     };
   },
@@ -125,15 +126,13 @@ Vue.component("cart", {
     },
 
     countAmount() {
-      const value = this.products.reduce(
+      return this.products.reduce(
         (total, product) => total + product.price * product.quantity,
         0
       );
-      return value;
     },
 
     countShipping(value) {
-      console.log(value);
       this.shipping = value;
     },
 
@@ -147,6 +146,7 @@ Vue.component("cart", {
     onShippingButtonPushed(value) {
       console.log(value);
       this.shipping = value;
+      this.countTotalAmount();
     },
 
     removeItem(id) {
@@ -156,7 +156,7 @@ Vue.component("cart", {
     },
   },
   mounted() {
-    fetch(`${API_URL}/getBasket.json`, {
+    fetch(`/cart`, {
       method: "GET",
     })
       .then((response) => response.json())
