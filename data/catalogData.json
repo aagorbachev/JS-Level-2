@@ -8,5 +8,18 @@
     "id_product": 456,
     "product_name": "Мышка",
     "price": 1000
+<<<<<<< Updated upstream
+=======
+  },
+  {
+    "id_product": 456,
+    "product_name": "Мышка",
+    "price": 1500
+  },
+  {
+    "id_product": 456,
+    "product_name": "Мышка",
+    "price": 4000
+>>>>>>> Stashed changes
   }
 ]

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {
   "amount": 46600,
   "countGoods": 2,
@@ -22,3 +23,6 @@
     }
   ]
 }
+=======
+{"amount":46600,"countGoods":2,"contents":[{"id":456,"quantity":1,"price":4000,"name":"Мышка"}]}
+>>>>>>> Stashed changes

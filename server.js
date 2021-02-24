@@ -44,6 +44,7 @@ app.get("/cart", (req, res) => {
 });
 
 app.post("/addToCart", (req, res) => {
+<<<<<<< Updated upstream
   fs.readFile("cart.json", "utf-8", (err, data) => {
     const cart = JSON.parse(data);
     const item = req.body;
@@ -57,6 +58,51 @@ app.post("/addToCart", (req, res) => {
         res.json({ res: false, err });
       }
     });
+=======
+  fs.readFile("./data/cart.json", "utf-8", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const cart = JSON.parse(data);
+      const item = req.body;
+
+      cart.contents.push(item);
+      console.log(cart);
+
+      fs.writeFile("./data/cart.json", JSON.stringify(cart), (err) => {
+        if (!err) {
+          console.log("Товар добавлен в корзину");
+          res.json({ res: true });
+        } else {
+          res.json({ res: false, err });
+        }
+      });
+    }
+  });
+});
+
+app.post("/removeFromCart", (req, res) => {
+  fs.readFile("./data/cart.json", "utf-8", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      const cart = JSON.parse(data);
+      console.log(cart);
+      const itemId = req.body;
+      const itemToRemove = cart.contents.findIndex((item) => item.id == itemId);
+      cart.contents.splice(itemToRemove, 1);
+      console.log(cart);
+
+      fs.writeFile("./data/cart.json", JSON.stringify(cart), (err) => {
+        if (!err) {
+          console.log("товар удален из корзины");
+          res.json({ res: true });
+        } else {
+          res.json({ res: false, err });
+        }
+      });
+    }
+>>>>>>> Stashed changes
   });
 });
 
