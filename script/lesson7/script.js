@@ -167,12 +167,12 @@ Vue.component("cart", {
         this.quantity = cart.countGoods;
         this.products = cart.contents;
       })
-      .catch((response) =>
-        response.json().then((message) => {
+      .catch((response) => {
+        response.json().then((error) => {
           this.fetched = false;
-          this.error = message.errorMessage;
-        })
-      );
+          this.message = error.errorMessage;
+        });
+      });
   },
 });
 

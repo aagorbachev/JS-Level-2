@@ -44,21 +44,6 @@ app.get("/cart", (req, res) => {
 });
 
 app.post("/addToCart", (req, res) => {
-<<<<<<< Updated upstream
-  fs.readFile("cart.json", "utf-8", (err, data) => {
-    const cart = JSON.parse(data);
-    const item = req.body;
-
-    cart.push(item);
-
-    fs.writeFile("./data/cart.json", JSON.stringify(cart), (err) => {
-      if (!err) {
-        res.json({ res: true });
-      } else {
-        res.json({ res: false, err });
-      }
-    });
-=======
   fs.readFile("./data/cart.json", "utf-8", (err, data) => {
     if (err) {
       console.log(err);
@@ -102,7 +87,6 @@ app.post("/removeFromCart", (req, res) => {
         }
       });
     }
->>>>>>> Stashed changes
   });
 });
 
