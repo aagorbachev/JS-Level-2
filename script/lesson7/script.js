@@ -1,6 +1,6 @@
 Vue.component("catalog-items", {
   template: `<div class="catalog__items">
-        <catalog-item v-for="(item, id) in filterItems" :key="\`items_\${id}\`" :name="item.product_name" :price="item.price" :id="item.id_product" :quantity="1"></catalog-item>
+        <catalog-item v-for="item in filterItems" :key="item.id" :product="item"></catalog-item>
     </div>`,
   data() {
     return {
@@ -12,7 +12,7 @@ Vue.component("catalog-items", {
     filterItems() {
       const regexp = new RegExp(this.filter, "i");
       return this.filter
-        ? [...this.items.filter((item) => regexp.test(item.product_name))]
+        ? [...this.items.filter((item) => regexp.test(item.name))]
         : [...this.items];
     },
   },
@@ -36,29 +36,15 @@ Vue.component("catalog-item", {
     class="catalog-item__img"
   />
   <div class="catalog-item__caption">
-    <h3 class="catalog-item__title"> {{ name }} </h3>
+    <h3 class="catalog-item__title"> {{ product.name }} </h3>
     <p class="catalog-item__description text">
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga placeat ullam ipsa harum animi unde, itaque commodi molestiae incidunt quod!
     </p>
-    <p class="catalog-item__price">&#8381; {{ price }}</p>
+    <p class="catalog-item__price">&#8381; {{ product.price }}</p>
   </div>
-  <button @click="addToCart" class="catalog-item__button">Add to Cart</button>
+  <button @click="$root.addToCart(product)" class="catalog-item__button">Add to Cart</button>
 </div>`,
-  props: ["name", "price", "id", "quantity"],
-  methods: {
-    addToCart() {
-      fetch("/addToCart", {
-        method: "POST",
-        headers: { "Content-Type": "application/json; charset=UTF-8" },
-        body: JSON.stringify({
-          id: this.id,
-          quantity: this.quantity,
-          price: this.price,
-          name: this.name,
-        }),
-      });
-    },
-  },
+  props: ["product"],
 });
 
 Vue.component("search", {
@@ -105,15 +91,12 @@ Vue.component("search", {
 Vue.component("cart", {
   template: `<section class="catalog__cart cart">
   <div class="cart__items">
-    <cart-item v-for="(product, id) in products" :name="product.name" :price="product.price" :key="\`products_\${id}\`" :on-click="() => removeItem(id)""></cart-item>
+    <cart-item v-for="product of cart" :key="product.id" :item="product" :on-click="() => removeItem(id)""></cart-item>
   </div>
-  <shipping v-on:getShippingCost="onShippingButtonPushed""></shipping>
- <total :subTotal="countAmount" :grandTotal="countTotalAmount"></total>
  <error v-if="fetched == false" :errorMessage="error"></error>
 </section>`,
   data() {
     return {
-      products: [],
       amount: 0,
       quantity: 0,
       shipping: 0,
@@ -156,28 +139,28 @@ Vue.component("cart", {
     },
   },
 
-  mounted() {
-    fetch(`/cart`, {
-      method: "GET",
-    })
-      .then((response) => response.json())
-      .then((cart) => {
-        this.fetched = true;
-        this.amount = cart.amount;
-        this.quantity = cart.countGoods;
-        this.products = cart.contents;
-      })
-      .catch((response) => {
-        response.json().then((error) => {
-          this.fetched = false;
-          this.message = error.errorMessage;
-        });
-      });
-  },
+  // mounted() {
+  //   fetch(`/cart`, {
+  //     method: "GET",
+  //   })
+  //     .then((response) => response.json())
+  //     .then((cart) => {
+  //       this.fetched = true;
+  //       this.amount = cart.amount;
+  //       this.quantity = cart.countGoods;
+  //       this.products = cart.contents;
+  //     })
+  // .catch((response) => {
+  //   response.json().then((error) => {
+  //     this.fetched = false;
+  //     this.message = error.errorMessage;
+  //   });
+  // });
+  // },
 });
 
 Vue.component("cart-item", {
-  template: `<div class="cart-item" @click="onClick">
+  template: `<div class="cart-item" @click="$root.removeFromCart(item)">
   <picture class="cart-item__image-container">
     <source srcset="../../images/cart/hoodie_140w.jpg" media="(max-width: 767px)">
     <source srcset="../../images/cart/hoodie_260w.jpg" media="(min-width: 768px)">
@@ -188,7 +171,7 @@ Vue.component("cart-item", {
     />
   </picture>
   <div class="cart-item__description">
-    <h2 class="cart-item__title">{{ name }}</h2>
+    <h2 class="cart-item__title">{{ item.name }}</h2>
     <button class="cart-item__close-button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -204,69 +187,67 @@ Vue.component("cart-item", {
       </svg>
     </button>
     <div class="cart-item__attributes">
-      <p class="cart-item__attribute price">Price: <span class="price__value">&#8381;{{ price }}</span></p>
+      <p class="cart-item__attribute price">Price: <span class="price__value">&#8381;{{ item.price }}</span></p>
       <p class="cart-item__attribute color">Color: <span class="color__value">Red</span></p>
       <p class="cart-item__attribute size">Size: <span class="size-value">XI</span></p>
-      <p class="cart-item__attribute quantity">Quantity:
-        <input class="quantity__value" type="number" name="quantity" id="1" min="0" max="100" /></p>
-      </p>
+      <p class="cart-item__attribute quantity">Quantity: {{ item.quantity }}</p>
     </div>
   </div>
 </div>`,
-  props: ["name", "price", "id", "onClick"],
+  props: ["item", "id"],
 });
 
-Vue.component("shipping", {
-  template: `<div class="cart__shipping shipping">
-  <h2 class="shipping__title">SHIPPING ADRESS</h2>
-  <form class="shipping__form shipping-form" action="#">
-    <input
-      type="text"
-      class="shipping-form__field"
-      placeholder="Bangladesh"
-    />
-    <input
-      type="text"
-      class="shipping-form__field"
-      placeholder="State"
-      value="State"
-    />
-    <input
-      type="text"
-      class="shipping-form__field"
-      placeholder="Postcode / Zip"
-      value="Postcode / Zip"
-    />
-    <button class="shipping-form__submit" type="submit" @click="countShipping">Get a quote</button>
-  </form>
-</div>`,
-  data() {
-    return {
-      shipping: 500,
-    };
-  },
-  methods: {
-    countShipping() {
-      this.$emit("getShippingCost", this.shipping);
-    },
-  },
-});
+// Vue.component("shipping", {
+//   template: `<div class="cart__shipping shipping">
+//   <h2 class="shipping__title">SHIPPING ADRESS</h2>
+//   <form class="shipping__form shipping-form" action="#">
+//     <input
+//       type="text"
+//       class="shipping-form__field"
+//       placeholder="Bangladesh"
+//     />
+//     <input
+//       type="text"
+//       class="shipping-form__field"
+//       placeholder="State"
+//       value="State"
+//     />
+//     <input
+//       type="text"
+//       class="shipping-form__field"
+//       placeholder="Postcode / Zip"
+//       value="Postcode / Zip"
+//     />
+//     <button class="shipping-form__submit" type="submit" @click="countShipping">Get a quote</button>
+//   </form>
+// </div>`,
+//   data() {
+//     return {
+//       shipping: 500,
+//     };
+//   },
+//   methods: {
+//     countShipping() {
+//       this.$emit("getShippingCost", this.shipping);
+//     },
+//   },
+// });
 
-Vue.component("total", {
-  template: `<div class="cart__total total">
-  <div class="total__sub-container">
-    <p class="total__sub-title">SUB TOTAL</p>
-    <p class="total__sub-value">&#8381;{{ subTotal }}</p>
-  </div>
-  <div class="total__grand-container">
-    <p class="total__grand-title">GRAND TOTAL</p>
-    <p class="total__grand-value">&#8381;{{ grandTotal }}</p>
-  </div>
-    <div class="total__line"></div>
-  <button class="total__checkout-btn">PROCEED TO CHECKOUT</button>
-</div>`,
-  props: ["grand-total", "sub-total"],
-});
+// Vue.component("total", {
+//   template: `<div class="cart__total total">
+//   <div class="total__sub-container">
+//     <p class="total__sub-title">SUB TOTAL</p>
+//     <p class="total__sub-value">&#8381;{{ subTotal }}</p>
+//   </div>
+//   <div class="total__grand-container">
+//     <p class="total__grand-title">GRAND TOTAL</p>
+//     <p class="total__grand-value">&#8381;{{ grandTotal }}</p>
+//   </div>
+//     <div class="total__line"></div>
+//   <button class="total__checkout-btn">PROCEED TO CHECKOUT</button>
+// </div>`,
+//   props: ["grand-total", "sub-total"],
+// });
 
 Vue.component("error", {
   template: `<div class="error">
@@ -279,9 +260,10 @@ const app = new Vue({
   el: "#root",
   data: {
     search: "",
-    cart: {},
+    cart: [],
     showFilter: false,
     isVisibleCart: true,
+    message: "",
   },
   methods: {
     showFilterOptions() {
@@ -303,5 +285,68 @@ const app = new Vue({
     filterItems(search) {
       this.search = search;
     },
+
+    addToCart(item) {
+      const product = {
+        id: item.id,
+        quantity: 1,
+        price: item.price,
+        name: item.name,
+      };
+
+      fetch("/addToCart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify(product),
+      });
+
+      const existingItem = this.cart.find((el) => el.id == item.id);
+
+      if (existingItem === undefined) {
+        this.cart.push(product);
+      } else {
+        existingItem.quantity++;
+      }
+    },
+
+    removeFromCart(item) {
+      const product = {
+        id: item.id,
+        quantity: 1,
+        price: item.price,
+        name: item.name,
+      };
+
+      fetch("/removeFromCart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=UTF-8" },
+        body: JSON.stringify(product),
+      });
+
+      const existingItem = this.cart.find((el) => el.id == item.id);
+
+      if (existingItem.quantity > 1) {
+        existingItem.quantity--;
+      } else {
+        const itemToRemove = this.cart.findIndex(
+          (product) => product.id === item.id
+        );
+        this.cart.splice(itemToRemove, 1);
+      }
+    },
+  },
+
+  mounted() {
+    fetch("/cart", {
+      method: "GET",
+    })
+      .then((response) =>
+        response.json().then((items) => {
+          this.cart = items;
+        })
+      )
+      .catch((response) => {
+        response.json().then((error) => (this.message = error.errorMessage));
+      });
   },
 });
