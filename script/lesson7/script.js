@@ -129,34 +129,7 @@ Vue.component("cart", {
     onShippingButtonPushed(value) {
       this.shipping = value;
     },
-
-    removeItem(productId) {
-      fetch(`/removeFromCart`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json; charset=UTF-8" },
-        body: JSON.stringify({ id: productId, quantity: 1 }),
-      }).then((res) => this.products.splice(productId, 1));
-    },
   },
-
-  // mounted() {
-  //   fetch(`/cart`, {
-  //     method: "GET",
-  //   })
-  //     .then((response) => response.json())
-  //     .then((cart) => {
-  //       this.fetched = true;
-  //       this.amount = cart.amount;
-  //       this.quantity = cart.countGoods;
-  //       this.products = cart.contents;
-  //     })
-  // .catch((response) => {
-  //   response.json().then((error) => {
-  //     this.fetched = false;
-  //     this.message = error.errorMessage;
-  //   });
-  // });
-  // },
 });
 
 Vue.component("cart-item", {
