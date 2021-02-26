@@ -82,7 +82,7 @@ app.post("/removeFromCart", (req, res) => {
 
       const index = cart.findIndex((el) => el.id == item.id);
 
-      if (itemToRemove.quantity < 1) {
+      if (itemToRemove.quantity == 1) {
         cart.splice(index, 1);
       } else {
         itemToRemove.quantity--;
@@ -90,7 +90,6 @@ app.post("/removeFromCart", (req, res) => {
 
       fs.writeFile("./data/cart.json", JSON.stringify(cart), (err) => {
         if (!err) {
-          console.log("товар удален из корзины");
           res.json({ res: true });
         } else {
           res.json({ res: false, err });
