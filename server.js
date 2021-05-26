@@ -51,12 +51,16 @@ app.post("/addToCart", (req, res) => {
       const cart = JSON.parse(data);
       const item = req.body;
 
-      cart.contents.push(item);
-      console.log(cart);
+      const existingItem = cart.find((el) => el.id == item.id);
+
+      if (existingItem === undefined) {
+        cart.push(item);
+      } else {
+        existingItem.quantity++;
+      }
 
       fs.writeFile("./data/cart.json", JSON.stringify(cart), (err) => {
         if (!err) {
-          console.log("Товар добавлен в корзину");
           res.json({ res: true });
         } else {
           res.json({ res: false, err });
@@ -72,15 +76,20 @@ app.post("/removeFromCart", (req, res) => {
       console.log(err);
     } else {
       const cart = JSON.parse(data);
-      console.log(cart);
-      const itemId = req.body;
-      const itemToRemove = cart.contents.findIndex((item) => item.id == itemId);
-      cart.contents.splice(itemToRemove, 1);
-      console.log(cart);
+      const item = req.body;
+
+      const itemToRemove = cart.find((el) => el.id == item.id);
+
+      const index = cart.findIndex((el) => el.id == item.id);
+
+      if (itemToRemove.quantity == 1) {
+        cart.splice(index, 1);
+      } else {
+        itemToRemove.quantity--;
+      }
 
       fs.writeFile("./data/cart.json", JSON.stringify(cart), (err) => {
         if (!err) {
-          console.log("товар удален из корзины");
           res.json({ res: true });
         } else {
           res.json({ res: false, err });
